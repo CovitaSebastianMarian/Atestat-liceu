@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+    <title>Sistemul solar</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <style>
+        body {
+            /*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buton {
+            width: auto;
+            text-align: center;
+            margin-left: 30px;
+            color: dimgray;
+            font-size: 18px;
+            margin-right: 30px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transform: translateY(21px);
+            display: block;
+        }
+
+        .buton:hover {
+            color: yellow;
+        }
+
+        #bara {
+            background-color: black;
+            width: 90%;
+            height: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        #text {
+            color: yellow;
+            overflow-y: auto;
+            margin: 20px;
+            width: 50%;
+            font-size: 30px;
+            font-family: 'Pathway Gothic One', sans-serif;
+            text-align: justify;
+        }
+
+        #model {
+            width: 50%;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            /* Elimină linia de sub link */
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        td {
+            width: auto;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 0);
+            border-radius: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(100, 100, 100);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bara">
+        <table align="left">
+            <tr>
+                <td>
+                    <a href="/">
+                        <p class="buton">Sistemul solar</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/soare.html">
+                        <p class="buton">Soare</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/mercur.html">
+                        <p class="buton">Mercur</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/venus.html">
+                        <p class="buton">Venus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/pamant.html">
+                        <p class="buton">Pământ</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/luna.html">
+                        <p class="buton">Lună</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/marte.html">
+                        <p class="buton">Marte</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/jupiter.html">
+                        <p class="buton">Jupiter</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/saturn.html">
+                        <p class="buton">Saturn</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/uranus.html">
+                        <p class="buton">Uranus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/neptun.html">
+                        <p class="buton">Neptun</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/about.html">
+                        <p class="buton">About</p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="content">
+        <div id="text">
+            <h2>Dimensiuni și structură</h2>
+            <p><strong>Diametru:</strong> Aproximativ 116.464 de kilometri.</p>
+            <p><strong>Circumferință la ecuator:</strong> Aproximativ 365.882 de kilometri.</p>
+            <p><strong>Compoziție:</strong> Saturn este compusă în principal din hidrogen și heliu, cu o atmosferă
+                groasă și
+                ineluri distincte.</p>
+
+            <h2>Ineluri</h2>
+            <p><strong>Inele:</strong> Saturn este cunoscută pentru sistemul său complex de inele, alcătuit din mii de
+                inele
+                subțiri din particule de gheață și praf.</p>
+            <p><strong>Structura inelelor:</strong> Inelele sunt formate din fragmente de gheață și roci, care variază
+                în
+                dimensiune de la particule microscopice la obiecte de dimensiunea unor clădiri mari.</p>
+
+            <h2>Luni</h2>
+            <p><strong>Luni:</strong> Saturn are peste 80 de luni cunoscute, cele mai mari fiind Titan, Enceladus, Mimas
+                și
+                Rhea.</p>
+            <p><strong>Caracteristici distinctive:</strong> Titan, cea mai mare lună a lui Saturn, are o atmosferă densă
+                și
+                este singura lună din sistemul solar cu o atmosferă semnificativă și cu caracteristici geologice active.
+            </p>
+
+            <h2>Explorare și observație</h2>
+            <p><strong>Nave spațiale:</strong> Saturn a fost vizitată de mai multe nave spațiale, inclusiv Pioneer 11,
+                Voyager
+                1, Voyager 2, Cassini-Huygens și recent de misiunea Juno.</p>
+            <p><strong>Observații de la distanță:</strong> Observațiile de la distanță ale lui Saturn au fost efectuate
+                folosind
+                telescoape terestre și instrumente spațiale, permițând cercetătorilor să studieze inelele, luni și
+                atmosfera
+                sa.</p>
+        </div>
+        <div id="model"></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const container = document.getElementById('model');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // SCENE
+            var scene = new THREE.Scene();
+            scene.background = null;
+
+            // CAMERA
+            var camera = new THREE.PerspectiveCamera(80, width / height, .01, 800);
+            camera.position.set(1, 1, 1);
+
+            // RENDERER
+            var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+
+            // Create a sphere
+            var geometry = new THREE.SphereGeometry(1, 64, 64);
+
+            // Load texture
+            var textureLoader = new THREE.TextureLoader();
+            var texture = textureLoader.load('/images/saturn.jpg');
+            var material = new THREE.MeshBasicMaterial({ map: texture });
+            var form = new THREE.Mesh(geometry, material);
+            scene.add(form);
+
+            geometry = new THREE.RingGeometry( 2, 4, 32 ); 
+            const texture2 = textureLoader.load('/images/saturnrings.png');
+            material = new THREE.MeshBasicMaterial({ map: texture2, transparent: true, side: THREE.DoubleSide });
+            const rings = new THREE.Mesh( geometry, material );
+            rings.rotation.set(90, 0, 0);
+            scene.add(rings);
+
+            // Add lights
+            var pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+            scene.add(new THREE.AmbientLight(0xFFFFFF, 0.3));
+
+            // Camera Rotation Control
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = -3;
+            controls.enablePan = true;
+            controls.minDistance = 1.5;
+
+            // Render animation on every rendering phase
+            function render() {
+                requestAnimationFrame(render);
+                renderer.render(scene, camera); // Render Scene and Camera
+                controls.update(); // For Orbit Controller
+            }
+
+            render();
+
+            // Update Camera Aspect Ratio and Renderer ScreenSize on Window resize
+            window.addEventListener('resize', function () {
+                const width = container.clientWidth; // Recalculate width
+                const height = container.clientHeight; // Recalculate height
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }, false);
+        }
+    </script>
+</body>
+
+</html>

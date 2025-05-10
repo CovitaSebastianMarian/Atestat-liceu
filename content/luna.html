@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+    <title>Sistemul solar</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <style>
+        body {
+            /*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buton {
+            width: auto;
+            text-align: center;
+            margin-left: 30px;
+            color: dimgray;
+            font-size: 18px;
+            margin-right: 30px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transform: translateY(21px);
+            display: block;
+        }
+
+        .buton:hover {
+            color: yellow;
+        }
+
+        #bara {
+            background-color: black;
+            width: 90%;
+            height: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        #text {
+            color: yellow;
+            overflow-y: auto;
+            margin: 20px;
+            width: 50%;
+            font-size: 30px;
+            font-family: 'Pathway Gothic One', sans-serif;
+            text-align: justify;
+        }
+
+        #model {
+            width: 50%;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            /* Elimină linia de sub link */
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        td {
+            width: auto;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 0);
+            border-radius: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(100, 100, 100);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bara">
+        <table align="left">
+            <tr>
+                <td>
+                    <a href="/">
+                        <p class="buton">Sistemul solar</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/soare.html">
+                        <p class="buton">Soare</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/mercur.html">
+                        <p class="buton">Mercur</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/venus.html">
+                        <p class="buton">Venus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/pamant.html">
+                        <p class="buton">Pământ</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/luna.html">
+                        <p class="buton">Lună</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/marte.html">
+                        <p class="buton">Marte</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/jupiter.html">
+                        <p class="buton">Jupiter</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/saturn.html">
+                        <p class="buton">Saturn</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/uranus.html">
+                        <p class="buton">Uranus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/neptun.html">
+                        <p class="buton">Neptun</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/about.html">
+                        <p class="buton">About</p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="content">
+        <div id="text">
+            <h2>Caracteristici fizice</h2>
+            <p><strong>Dimensiuni:</strong> Luna are un diametru mediu de aproximativ 3.474 de kilometri și este a
+                cincea cea mai mare satelită naturală din sistemul solar.</p>
+            <p><strong>Suprafață:</strong> Suprafața Lunii este acoperită în mare parte de cratere, mări și munți.
+                Craterele sunt formate de impactul cu meteoriți, iar mările sunt regiuni plane, întunecate, care sunt de
+                fapt câmpuri de lavă solidificată.</p>
+            <p><strong>Atmosferă:</strong> Luna nu are o atmosferă densă, ceea ce înseamnă că nu are vreme, vânt sau
+                ploi. Astfel, temperaturile pe suprafața Lunii variază extrem de mult între zi și noapte.</p>
+
+            <h2>Explorare și misiuni spațiale</h2>
+            <p><strong>Programul Apollo:</strong> În anii 1960 și 1970, NASA a trimis mai multe misiuni cu echipaj uman
+                în spațiu, cunoscute sub numele de programul Apollo. Misiunile Apollo 11, 12, 14, 15, 16 și 17 au fost
+                cele care au dus la aterizarea a 12 astronauți pe suprafața Lunii și la aducerea lor înapoi pe Pământ.
+            </p>
+            <p><strong>Explorare robotică:</strong> Pe lângă misiunile cu echipaj uman, Luna a fost explorată și de
+                numeroase misiuni robotice, care au trimis rovere și sonde pentru a studia compoziția, geologia și alte
+                caracteristici ale Lunii.</p>
+
+            <h2>Utilizare și cercetare viitoare</h2>
+            <p><strong>Colonizare spațială:</strong> Luna este considerată de mulți oameni de știință și exploratori
+                spațiali ca un potențial punct de plecare pentru colonizarea spațiului și ca o sursă de resurse pentru
+                viitoarele misiuni în spațiu.</p>
+            <p><strong>Studii științifice viitoare:</strong> Oamenii de știință continuă să studieze Luna pentru a
+                înțelege mai bine originea și evoluția sa, precum și pentru a explora potențialul său ca bază pentru
+                viitoarele activități spațiale umane și robotice.</p>
+
+            <h2>Legende și mituri</h2>
+            <p><strong>Interes cultural:</strong> Luna a jucat un rol important în culturile din întreaga lume de-a
+                lungul istoriei umane, inspirând mituri, legende și opere de artă. De exemplu, multe culturi antice
+                credeau că Luna avea puteri magice sau spirituale și îi atribuiau diferite semnificații și simboluri.
+            </p>
+            <p><strong>Observații astronomice:</strong> Luna este una dintre cele mai ușor de observat obiecte cerești
+                de pe Pământ și este un subiect popular pentru astronomi amatori și profesioniști, care studiază
+                mișcarea și fazele sale, precum și alte caracteristici interesante ale sale.</p>
+        </div>
+        <div id="model"></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const container = document.getElementById('model');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // SCENE
+            var scene = new THREE.Scene();
+            scene.background = null;
+
+            // CAMERA
+            var camera = new THREE.PerspectiveCamera(80, width / height, .01, 800);
+            camera.position.set(1, 1, 1);
+
+            // RENDERER
+            var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+
+            // Create a sphere
+            var geometry = new THREE.SphereGeometry(1, 64, 64);
+
+            // Load texture
+            var textureLoader = new THREE.TextureLoader();
+            var texture = textureLoader.load('/images/luna.jpg');
+            var material = new THREE.MeshBasicMaterial({ map: texture });
+            var form = new THREE.Mesh(geometry, material);
+            scene.add(form);
+
+            // Add lights
+            var pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+            scene.add(new THREE.AmbientLight(0xFFFFFF, 0.3));
+
+            // Camera Rotation Control
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = -3;
+            controls.enablePan = true;
+            controls.minDistance = 1.5;
+
+            // Render animation on every rendering phase
+            function render() {
+                requestAnimationFrame(render);
+                renderer.render(scene, camera); // Render Scene and Camera
+                controls.update(); // For Orbit Controller
+            }
+
+            render();
+
+            // Update Camera Aspect Ratio and Renderer ScreenSize on Window resize
+            window.addEventListener('resize', function () {
+                const width = container.clientWidth; // Recalculate width
+                const height = container.clientHeight; // Recalculate height
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }, false);
+        }
+    </script>
+</body>
+
+</html>

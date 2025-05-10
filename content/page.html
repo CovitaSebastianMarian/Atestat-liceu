@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+    <title>Sistemul solar</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <img id="canvasImage" src="" style="display: none;">
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            cursor: url('/images/arrowb.png'), auto;
+        }
+
+        .buton {
+            width: auto;
+            text-align: center;
+            margin-left: 30px;
+            color: dimgray;
+            font-size: 18px;
+            margin-right: 30px;
+            font-family: Arial, sans-serif;
+            cursor: url('/images/pointerb.png'), pointer;
+            transform: translateY(21px);
+            display: block;
+        }
+
+        .buton:hover {
+            color: yellow;
+        }
+
+        #bara {
+            background-color: transparent;
+            width: 90%;
+            height: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
+            z-index: 1;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #text {
+            overflow-y: auto;
+            margin: 10px;
+            width: 100%;
+            margin: 5%;
+            font-size: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: justify;
+            color: yellow;
+        }
+
+        a {
+            text-decoration: none;
+            /* Elimină linia de sub link */
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        td {
+            width: auto;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 0);
+            border-radius: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(100, 100, 100);
+        }
+
+        .star-wars {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            color: #feda4a;
+            font-family: 'Pathway Gothic One', sans-serif;
+            font-size: 500%;
+            font-weight: 600;
+            letter-spacing: 6px;
+            line-height: 100%;
+            perspective: 400px;
+            text-align: justify;
+            overflow: hidden;
+        }
+
+        .crawl {
+            height: 300%;
+            position: relative;
+            margin-top: 100%;
+            transform-origin: 50% 100%;
+            animation: crawl 120s linear forwards;
+        }
+
+        @keyframes crawl {
+            0% {
+                top: -100px;
+                transform: rotateX(20deg) translateZ(0);
+            }
+
+            100% {
+                top: -13000px;
+                transform: rotateX(20deg) translateZ(-2500px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas style="display: none;"></canvas>
+    <div id="bara">
+        <table align="left">
+            <tr>
+                <td>
+                    <a href="/">
+                        <p class="buton">Sistemul solar</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/soare.html">
+                        <p class="buton">Soare</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/mercur.html">
+                        <p class="buton">Mercur</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/venus.html">
+                        <p class="buton">Venus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/pamant.html">
+                        <p class="buton">Pământ</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/luna.html">
+                        <p class="buton">Lună</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/marte.html">
+                        <p class="buton">Marte</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/jupiter.html">
+                        <p class="buton">Jupiter</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/saturn.html">
+                        <p class="buton">Saturn</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/uranus.html">
+                        <p class="buton">Uranus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/neptun.html">
+                        <p class="buton">Neptun</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/about.html">
+                        <p class="buton">About</p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="content">
+        <div class="star-wars">
+            <div class="crawl">
+                <h2>Compoziție și structură</h2>
+                <p><strong>Steaua centrală:</strong> Soarele este steaua centrală a sistemului solar, în jurul căreia se
+                    învârt planetele, sateliții, asteroizii și alte obiecte cerești.</p>
+                <p><strong>Planete:</strong> Sistemul solar cuprinde opt planete principale: Mercur, Venus, Pământ,
+                    Marte, Jupiter, Saturn, Uranus și Neptun. Acestea se împart în două categorii: planetele telurice
+                    (Mercur, Venus, Pământ și Marte) și planetele gigante gazoase (Jupiter, Saturn, Uranus și Neptun).
+                </p>
+
+                <h2>Alți membri</h2>
+                <p><strong>Sateliti naturali:</strong> Majoritatea planetelor din sistemul solar au sateliți naturali,
+                    care orbitează în jurul lor. Cel mai cunoscut satelit natural este Luna, care orbitează în jurul
+                    Pământului.</p>
+                <p><strong>Asteroizi:</strong> Sistemul solar conține milioane de asteroizi, care sunt fragmente de
+                    piatră sau metal care orbitează în jurul Soarelui, în principal între Marte și Jupiter.</p>
+                <p><strong>Comete:</strong> Cometele sunt obiecte cerești compuse în principal din gheață, praf și roci,
+                    care orbitează în jurul Soarelui pe traiectorii eliptice. Ele pot fi observate când se apropie de
+                    Soare și încep să se evaporeze, creând coada caracteristică.</p>
+
+                <h2>Explorare și observație</h2>
+                <p><strong>Misiuni spațiale:</strong> O serie de misiuni spațiale au explorat și studiat diverse aspecte
+                    ale sistemului solar. Printre cele mai cunoscute misiuni se numără Apollo (care a dus la aterizarea
+                    pe Lună), Voyager (care a explorat planetele exterioare), Mars rovers (care au studiat Marte) și
+                    Cassini-Huygens (care a studiat Saturn și sateliții săi).</p>
+                <p><strong>Observație terestră:</strong> Astronomii folosesc telescoape și observatoare terestre pentru
+                    a studia și monitoriza obiectele din sistemul solar, inclusiv planetele, sateliții, asteroizii și
+                    cometele.</p>
+
+                <h2>Origine și evoluție</h2>
+                <p><strong>Teoria formării:</strong> Cea mai acceptată teorie despre formarea sistemului solar este cea
+                    a nebuloasei solare, conform căreia Soarele și celelalte obiecte din sistemul solar s-au format
+                    dintr-o nor de praf și gaz interstelar acum aproximativ 4,6 miliarde de ani.</p>
+                <p><strong>Evoluția:</strong> De-a lungul miliardelor de ani, sistemul solar a evoluat și s-a schimbat,
+                    cu planete care s-au format, s-au deplasat și au suferit modificări climatice și geologice, iar
+                    unele obiecte au intrat în coliziune sau au fost capturate în orbită.</p>
+
+                <h2>Viitorul explorării spațiale</h2>
+                <p><strong>Explorare continuă:</strong> Omenirea continuă să exploreze și să înțeleagă sistemul solar
+                    prin misiuni spațiale, observații terestre și modele teoretice. Viitoarele misiuni, cum ar fi
+                    explorarea planetei Marte, colonizarea spațială și studiul altor sisteme solare, promit să aducă noi
+                    cunoștințe și descoperiri fascinante despre universul nostru cosmic.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        "use strict";
+
+        let c, ctx,
+            WIDTH, HEIGHT,
+            lastX, lastY;
+
+        const STARS = [];
+
+        const { PI: π } = Math;
+
+        class Star {
+            constructor() {
+                this.x = UTILITY.random(-WIDTH * 2, WIDTH * 3);
+                this.y = UTILITY.random(-HEIGHT * 2, HEIGHT * 3);
+                this.z = UTILITY.random(20);
+
+                this.vx = UTILITY.random(3, 5) * (1 - UTILITY.normalize(this.z, 0, 20));
+                this.vy = UTILITY.random(3, 5) * (1 - UTILITY.normalize(this.z, 0, 20));
+
+                this.r = UTILITY.random(1, 2) * (1 - UTILITY.normalize(this.z, 0, 20));
+                this.alpha = UTILITY.normalize(this.z, 0, 20) / 5 + .8 + UTILITY.random(-.05, .05);
+            }
+            update(vx, vy) {
+                this.x += this.vx * vx;
+                this.y += this.vy * vy;
+
+                this.draw();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, π * 2, true);
+                ctx.closePath();
+
+                ctx.fillStyle = `rgb(255, 255, 255, ${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        const UTILITY = {
+            random(max = 1, min = 0) {
+                return max > min ? Math.random() * (max - min) + min : Math.random() * (min - max) + max;
+            },
+            normalize(value, min, max) {
+                return (value - min) / (max - min);
+            }
+        };
+
+        const MAIN = {
+            ASSIGN() {
+                c = document.querySelector("canvas");
+                ctx = c.getContext("2d");
+
+                [WIDTH, HEIGHT] = [window.innerWidth, window.innerHeight];
+            },
+            SET_CANVAS_SIZE() {
+                c.width = WIDTH;
+                c.style.width = WIDTH;
+
+                c.height = HEIGHT;
+                c.style.height = HEIGHT;
+            },
+            INITIALIZE() {
+                STARS.length = 0;
+                for (let i = 0; i < 5000; i++) {
+                    STARS.push(new Star());
+                    STARS[i].draw();
+                }
+            },
+            UPDATE_BACKGROUND_IMAGE() {
+                document.body.style.backgroundImage = `url(${c.toDataURL()})`;
+                document.body.style.backgroundSize = 'cover';
+            }
+        };
+
+        const EVENTS = {
+            LOAD() {
+                MAIN.ASSIGN();
+                MAIN.SET_CANVAS_SIZE();
+                MAIN.INITIALIZE();
+            },
+            RESIZE() {
+                MAIN.ASSIGN();
+                MAIN.SET_CANVAS_SIZE();
+                MAIN.INITIALIZE();
+            },
+            MOUSEMOVE(e) {
+                if (lastX != undefined && lastY != undefined) {
+                    const distX = (e.clientX - lastX) / 10;
+                    const distY = (e.clientY - lastY) / 10;
+
+                    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+                    for (let i of STARS)
+                        i.update(distX, distY);
+                }
+
+                lastX = e.clientX;
+                lastY = e.clientY;
+
+                MAIN.UPDATE_BACKGROUND_IMAGE();
+            }
+        };
+
+        window.addEventListener("load", EVENTS.LOAD);
+        window.addEventListener("resize", EVENTS.RESIZE);
+        window.addEventListener("mousemove", EVENTS.MOUSEMOVE);
+    </script>
+</body>
+
+</html>

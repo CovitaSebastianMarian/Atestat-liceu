@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
+    <title>Sistemul solar</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <style>
+        body {
+            /*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .buton {
+            width: auto;
+            text-align: center;
+            margin-left: 30px;
+            color: dimgray;
+            font-size: 18px;
+            margin-right: 30px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transform: translateY(21px);
+            display: block;
+        }
+
+        .buton:hover {
+            color: yellow;
+        }
+
+        #bara {
+            background-color: black;
+            width: 90%;
+            height: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        #text {
+            color: yellow;
+            overflow-y: auto;
+            margin: 20px;
+            width: 50%;
+            font-size: 30px;
+            font-family: 'Pathway Gothic One', sans-serif;
+            text-align: justify;
+        }
+
+        #model {
+            width: 50%;
+            height: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            /* Elimină linia de sub link */
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        td {
+            width: auto;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(0, 0, 0);
+            border-radius: 15px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(100, 100, 100);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bara">
+        <table align="left">
+            <tr>
+                <td>
+                    <a href="/">
+                        <p class="buton">Sistemul solar</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/soare.html">
+                        <p class="buton">Soare</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/mercur.html">
+                        <p class="buton">Mercur</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/venus.html">
+                        <p class="buton">Venus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/pamant.html">
+                        <p class="buton">Pământ</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/luna.html">
+                        <p class="buton">Lună</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/marte.html">
+                        <p class="buton">Marte</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/jupiter.html">
+                        <p class="buton">Jupiter</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/saturn.html">
+                        <p class="buton">Saturn</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/uranus.html">
+                        <p class="buton">Uranus</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/neptun.html">
+                        <p class="buton">Neptun</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="/about.html">
+                        <p class="buton">About</p>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="content">
+        <div id="text">
+            <h2>Poziționare și dimensiuni</h2>
+            <p><strong>Poziționare în sistemul solar:</strong> Soarele este steaua centrală a sistemului solar, în jurul
+                căreia se învârt planetele.</p>
+            <p><strong>Diametru:</strong> Aproximativ 1.391.000 de kilometri.</p>
+            <p><strong>Masă:</strong> Aproximativ 330.000 de ori masa Pământului.</p>
+
+            <h2>Compoziție și structură</h2>
+            <p><strong>Compoziție:</strong> Soarele este alcătuit în principal din hidrogen și heliu, cu cantități mici
+                de elemente mai grele.</p>
+            <p><strong>Structură:</strong> Are o structură stratificată, cu un nucleu intern fierbinte, o zonă
+                intermediară numită "zona convectivă" și o "fotosferă" vizibilă din exterior.</p>
+
+            <h2>Lumină și energie</h2>
+            <p><strong>Lumină:</strong> Soarele generează lumină și căldură prin procesul de fuziune nucleară, în care
+                hidrogenul este transformat în heliu în nucleul său.</p>
+            <p><strong>Energie:</strong> Energia solară alimentează activitatea biologică și meteorologică de pe Pământ
+                și este folosită pentru producerea de energie electrică prin panouri solare.</p>
+
+            <h2>Activitate solară</h2>
+            <p><strong>Fleac:</strong> Soarele este o sursă activă de evenimente solare, inclusiv pete solare, erupții
+                solare și explozii de masă coronală, care pot afecta comunicațiile și sistemele electronice pe Pământ.
+            </p>
+            <p><strong>Ciclu solar:</strong> Soarele trece printr-un ciclu aproximativ de 11 ani de activitate și
+                inactivitate, în care activitatea sa magnetica variază, afectând fenomenele solare observabile de pe
+                Pământ.</p>
+
+            <h2>Explorare și observație</h2>
+            <p><strong>Explorare:</strong> Soarele a fost studiat de mai multe misiuni spațiale, inclusiv SoHO, STEREO
+                și Parker Solar Probe, care au oferit o înțelegere mai bună a structurii și a proceselor sale interne.
+            </p>
+            <p><strong>Observație:</strong> Astronomii folosesc telescoape și observatoare solare pentru a studia
+                activitatea solară și pentru a monitoriza schimbările în lumină și radiație emise de Soare.</p>
+        </div>
+        <div id="model"></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const container = document.getElementById('model');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // SCENE
+            var scene = new THREE.Scene();
+            scene.background = null;
+
+            // CAMERA
+            var camera = new THREE.PerspectiveCamera(80, width / height, .01, 800);
+            camera.position.set(1, 1, 1);
+
+            // RENDERER
+            var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+
+            // Create a sphere
+            var geometry = new THREE.SphereGeometry(1, 64, 64);
+
+            // Load texture
+            var textureLoader = new THREE.TextureLoader();
+            var texture = textureLoader.load('/images/soare.jpg');
+            var material = new THREE.MeshBasicMaterial({ map: texture });
+            var form = new THREE.Mesh(geometry, material);
+            scene.add(form);
+
+            // Add lights
+            var pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+            scene.add(new THREE.AmbientLight(0xFFFFFF, 0.3));
+
+            // Camera Rotation Control
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = -3;
+            controls.enablePan = true;
+            controls.minDistance = 1.5;
+
+            // Render animation on every rendering phase
+            function render() {
+                requestAnimationFrame(render);
+                renderer.render(scene, camera); // Render Scene and Camera
+                controls.update(); // For Orbit Controller
+            }
+
+            render();
+
+            // Update Camera Aspect Ratio and Renderer ScreenSize on Window resize
+            window.addEventListener('resize', function () {
+                const width = container.clientWidth; // Recalculate width
+                const height = container.clientHeight; // Recalculate height
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }, false);
+        }
+    </script>
+</body>
+
+</html>
